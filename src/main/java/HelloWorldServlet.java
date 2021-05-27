@@ -8,7 +8,7 @@ import java.io.IOException;
 public class HelloWorldServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        res.getWriter().println("<h1>Hello World!</h1>");
+        res.getWriter().println("<h1>Hello Connor!</h1>");
 
     }
 }
