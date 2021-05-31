@@ -12,14 +12,21 @@ import static java.lang.Integer.parseInt;
 public class guessServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         req.getRequestDispatcher("/guess.jsp").forward(req, res);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int guess = parseInt(req.getParameter("value"));
         int actualNum = (int) (Math.random()*1)+2;
-            if (guess == actualNum){
-                res.sendRedirect("/correct");
+        if (guess == actualNum){
+            res.sendRedirect("/correct");
         }
-            else if ((1 <= guess && guess <= 3)){
+        else if ((1 <= guess && guess <= 3)){
             res.sendRedirect("/incorrect");
         }
         else res.sendRedirect("/guess");
     }
-}
+    }
+
+
+
